@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block body %}
+    
+    {% if entry.link %}
+      <h2><a class="title-link" href="{{entry.link}}">{{entry.title}}</a></h2>
+    {%else%}
+      <h2>{{entry.title}}</h2>
+    {% endif %}
+    <div>
+      <h3>{{entry.source}}, {{entry.published}}</h3>
+      <h5>uploaded by: {{entry.user}}</h5>
+      <h5>on {{entry.posted}}</h5>
+    </div>
+    <h4>comment</h4>
+    <div class='comment'>
+      {% if entry.comment %}
+        <p>{{entry.comment}}</p>
+      {% else %}
+        <p>(no comment)</p>
+      {% endif %}
+    </div>
+<div class="controls">
+  <a href="javascript:toggle('insertForm')">Update this entry</a> 
+  <a href="{{url_for('delete',doc_id=entry.id)}}">delete entry</a>
+  <a href="{{url_for('show_entries')}}">Back to list</a>
+</div>
+  <div id="insertForm" style="display:none;">
+    <form action="{{ url_for('show',doc_id=entry.id) }}" method="post" class="add-entry">
+      <dl>
+        <dt>Title:
+        <dd><input type="text" size="65" name="title" value="{{entry.title}}"/></dd>
+        <dt>User:</dt>
+        <dd><input type="text" size="30" name="user" value="{{entry.user}}"/>
+        <dt>Source of publication:</dt>
+        <dd><input type="text" size="50" name="source" value="{{entry.source}}"/></dd>
+        <dt>Month/Year published:</dt>
+        <dd><input type="text" size=30 name="published" value="{{entry.published}}"></dd>
+        <dt>Link to article (optional):</dt>
+        <dd><input type=text size=50 name="link" value="{{entry.link}}"/></dd>
+        <dt>Comments (optional):</dt>
+        <dd><textarea cols="60" rows="6" name="comment">{{entry.comment}}</textarea></dd>
+        <dd><input type="submit" name="submit" value="submit" /></dd>
+      </dl>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <title>{{feed.title}}</title>
+    <link>{{feed.link}}</link>
+    <description>{{feed.description}}</description>
+    {% for entry in entries %}
+    <item>
+       <title>{{entry.title}}</title>
+       <link>{{entry.link}}</link>
+       <description>document uploaded by {{entry.user}}.</description>
+       <pubDate>{{entry.posted}}</pubDate>
+    </item>
+    {% endfor %} 
+    </channel>
+</rss>

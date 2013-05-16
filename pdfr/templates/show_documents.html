@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block body %}
+  <div class="controls"><a href="javascript:toggle('insertForm')">insert new</a></div>
+  <div id="insertForm" style="display:none;">
+    <form action="{{ url_for('add_entry') }}" method="post" class="add-entry">
+      <dl>
+        <dt>Title:
+        <dd><input type="text" size="65" name="title"/></dd>
+        <dt>User:</dt>
+        <dd><input type="text" size="30" name="user" value="{{session.username}}"/>
+        <dt>Source of publication:</dt>
+        <dd><input type="text" size="50" name="source"/></dd>
+        <dt>Month/Year published:</dt>
+        <dd><input type="text" size=30 name="published"></dd>
+        <dt>Link to article (optional):</dt>
+        <dd><input type=text size=50 name="link"/></dd>
+        <dt>Comments (optional):</dt>
+        <dd><textarea cols="60" rows="6" name="comment"></textarea></dd>
+        <dd><input type="submit" name="submit" value="submit" /></dd>
+      </dl>
+    </form>
+  </div>
+  <h2>Most Recent Documents</h2>
+  <table class="entries">
+  {% for entry in entries %}
+    <tr>
+      <td class="title">{{ entry.title }}</td>
+      <td class="user">{{ entry.user }}</td>
+      <td class="link"><a href="{{ entry.link }}">link</a></td>
+      <td class="show"><a href="{{ url_for('show',doc_id=entry.id)}}">show/edit</a></td>
+    </tr>
+  {% else %}
+    <tr>
+      <td><em>Unbelievable.  No entries here so far</em></td>
+    </tr>
+  {% endfor %}
+  
+  </table>
+  <div class="rss-link"><a href="{{url_for('getXml')}}"><img src="{{ url_for('static', filename='valid-rss-rogers.png') }}"/></a>
+{% endblock %}
