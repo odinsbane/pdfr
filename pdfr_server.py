@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-from pdfr import pdfr
+from pdfr import app
 
 
 if __name__=='__main__':
-    pdfr.app.run()
+    app.run()

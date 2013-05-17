@@ -12,7 +12,7 @@ class Adapter():
         self.dbname = app.config['DATABASE']
         self.errors = []
     def connect(self):
-        self.db = sqlite3.connect(self.app.open_resource(self.dbname).name)
+        self.db = sqlite3.connect(self.dbname)
     def init_db(self):
         self.connect()
         with closing( self.db ) as db:

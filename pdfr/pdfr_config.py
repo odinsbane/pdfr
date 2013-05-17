@@ -15,10 +15,9 @@ def loadParameters(app):
             value = item[ split_dex+1: ].strip()
             if key =='USERNAME':
                 value = value.split(',')
-            params[key] = value
             if key =='DATABASE':
                 if not value[0] == '/':
                     value = '/'.join([app.root_path,value])
-                
+            params[key] = value
     return params
     
