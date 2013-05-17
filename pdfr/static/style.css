@@ -86,6 +86,7 @@ h2 {
 .controls {
     text-align: center;
     background: #fafafa;
+    border-top: 2px solid #eee;
 }
 
 .controls a {
@@ -114,8 +115,7 @@ div.comment {
     font-weight: bold;
 
 }
-.info-row{ 
-}
+
 .info-row td{
     padding-left: 20px;
     margin-bottom: 10px;

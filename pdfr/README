@@ -1,0 +1,64 @@
+pdfr README file.
+
+1..............Introduction
+2..............Setting Up
+3..............License
+
+1. Introduction
+
+"pdfr" is a small document organizer written with python using the flask 
+microframwork (http://flask.pocoo.org/). pdfr allows multiple users to enter 
+a paper or journal article. Currently each article has a title, source of 
+publication, a date published, link to more information about the article and 
+optional comments. There is also an xml view so that the site can be monitored
+with an rss reader. Currently all of the database information is stored using
+sqlite3. 
+
+This has been built using flask 0.9 and python 2.7.2.
+
+2. Setting up
+
+This assumes that you know how to check out a project from github and that you 
+have flask installed.
+
+Two things that need to be setup for pdfr to work, is the config file and the 
+database needs to be initiliazed. 
+
+First copy the default.conf to pdfr.conf. Edit pdfr.conf to make any appropriate
+changes, such as usernames, password and the location of the database. The 
+location of the database can be an absolute or relative path name.
+
+Second initialize the DB. Go to the directory with pdfr.py and start a python
+terminal. While inside of python the following commands should create a new
+database.
+
+>>> import pdfr
+>>> pdfr.restartDb()
+
+Quit python and the db that you named in pdfr.conf should be created. WARNING
+this will wipe out your old DB.
+
+3. License
+
+
+The MIT License (MIT)
+
+Copyright (c) <2013> <Matthew B. Smith>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
