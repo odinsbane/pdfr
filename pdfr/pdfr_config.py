@@ -1,19 +1,24 @@
 #!/usr/bin/env python
 
-PARAMETER_FILE = "/Users/msmith/Documents/development/flask/pdfr/pdfr.conf"
 
-def loadParameters():
-    lines = open(PARAMETER_FILE,'r').readlines()
+def loadParameters(app):
+    lines = []
+    with app.open_resource('pdfr.conf') as f:
+        lines = f.readlines()
     params = {}
     for item in lines:
         if item[0]=='#':
             pass
         else:
-            pair = item.strip().split(' ')
-            value = pair[1]
-            if pair[0] =='USERNAME':
-                value = pair[1].split(',')
-            params[pair[0]] = value
+            split_dex = item.find(' ')
+            key = item[:split_dex]
+            value = item[ split_dex+1: ].strip()
+            if key =='USERNAME':
+                value = value.split(',')
+            params[key] = value
+            if key =='DATABASE':
+                if not value[0] == '/':
+                    value = '/'.join([app.root_path,value])
+                
     return params
     
-parameters = loadParameters()

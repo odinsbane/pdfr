@@ -1,3 +1,4 @@
+
 body  { 
     font-family: sans-serif; background: #eee; 
 }
@@ -48,9 +49,6 @@ h2 {
     border: 5px solid #ccc;
     padding: 10px; 
     background: white; 
-}
-td{
-    padding: 10px;
 }
 
 .entries { 
@@ -104,4 +102,25 @@ div.comment {
     border-top: solid 2px #eee;
     margin-top: 10px;
     padding-top: 10px;
+}
+.title a{
+    text-decoration: none;
+}
+
+.title-row td{
+   padding-top: 20px; 
+   padding-left: 20px;
+   padding-right: 20px;
+    font-weight: bold;
+
+}
+.info-row{ 
+}
+.info-row td{
+    padding-left: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+table {
+   border-collapse: collapse;   
 }

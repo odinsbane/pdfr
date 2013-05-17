@@ -12,7 +12,7 @@ class Adapter():
         self.dbname = app.config['DATABASE']
         self.errors = []
     def connect(self):
-        self.db = sqlite3.connect(self.dbname)
+        self.db = sqlite3.connect(self.app.open_resource(self.dbname).name)
     def init_db(self):
         self.connect()
         with closing( self.db ) as db:
@@ -23,8 +23,8 @@ class Adapter():
         self.db.commit()
     def close(self):
         self.db.close()
-    def getEntries(self):
-        curse = self.db.execute('select id,title,user,link,timestamp from documents order by id desc')
+    def getEntries(self, limit=11, offset=0):
+        curse = self.db.execute('select id,title,user,link,timestamp from documents order by id desc limit ? offset ?', (limit, offset))
         return [dict(id=row[0], title=row[1], user=row[2], link=row[3], posted=row[4]) for row in curse.fetchall()]
     def newEntry(self,form):
         self.db.execute('insert into documents (title,user,source,published,link,comment,timestamp) values (?, ?, ?, ?, ?, ?, ?)',

@@ -1,2 +1,4 @@
 *.pyc
 pdfr.conf
+*.db
+passenger_wsgi.py

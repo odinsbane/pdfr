@@ -23,18 +23,20 @@
   <h2>Most Recent Documents</h2>
   <table class="entries">
   {% for entry in entries %}
-    <tr>
-      <td class="title">{{ entry.title }}</td>
-      <td class="user">{{ entry.user }}</td>
-      <td class="link"><a href="{{ entry.link }}">link</a></td>
+    <tr class="title-row">
+      <td class="title" colspan='3'> <a href="{{ entry.link }}">{{ entry.title }}</a></td>
+    </tr>
+    <tr class="info-row">
       <td class="show"><a href="{{ url_for('show',doc_id=entry.id)}}">show/edit</a></td>
+      <td class="user">Uploaded by {{ entry.user }}</td>
+      <td class="date-uploaded">on {{ entry.posted | simple_time }}</td>
     </tr>
   {% else %}
     <tr>
       <td><em>Unbelievable.  No entries here so far</em></td>
     </tr>
   {% endfor %}
-  
   </table>
+    <div class="controls">{{links.previous | safe}} {{links.next | safe}} {{links.all | safe}}</div>
   <div class="rss-link"><a href="{{url_for('getXml')}}"><img src="{{ url_for('static', filename='valid-rss-rogers.png') }}"/></a>
 {% endblock %}
