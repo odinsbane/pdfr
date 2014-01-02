@@ -1,6 +1,20 @@
+@font-face {
+  font-family: 'Metal Mania';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Metal Mania'), local('MetalMania-Regular'), url(http://themes.googleusercontent.com/static/fonts/metalmania/v2/_MPduYXiaptg6GQ2M6AHtLrIa-7acMAeDBVuclsi6Gc.woff) format('woff');
+}
 
 body  { 
-    font-family: sans-serif; background: #eee; 
+  font-family: sans-serif;
+  background: #eee; 
+}
+
+h1.title {
+  //font-family: 'Metal Mania', cursive;
+  font-family: 'Trade Winds', cursive;
+  font-weight: normal;
+  color: black;
 }
 
 h1, h2 { 

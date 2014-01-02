@@ -2,3 +2,5 @@
 pdfr.conf
 *.db
 passenger_wsgi.py
+.DS_STORE
+.idea

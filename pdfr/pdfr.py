@@ -4,7 +4,7 @@ from pdfr_config import loadParameters
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 import dblib
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/docr-static')
 parameters = loadParameters(app)
 
 DATABASE = parameters['DATABASE']

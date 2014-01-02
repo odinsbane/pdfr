@@ -1,9 +1,10 @@
 <!doctype html>
 <title>Document Organizer</title>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<link href='http://fonts.googleapis.com/css?family=Trade+Winds' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
 <div class=page>
-  <h1>DocOranizer</h1>
+  <h1 class="title">DocOranizer</h1>
   {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>
   {% endfor %}
